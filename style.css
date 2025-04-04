@@ -15,7 +15,8 @@ body {
 
 /* Container for the background image */
 .flyer-container-outer {
-    max-width: 48rem;
+    /* Reverted max-width back to original portrait-friendly size */
+    max-width: 48rem; /* 768px */
     margin-left: auto;
     margin-right: auto;
     margin-top: 2.5rem;
@@ -24,9 +25,10 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     /* Background Image Added Here */
-    background-image: url('image.png');
+    background-image: url('82136127-3e21-4e8c-a032-d3c1451bd23a.jpg');
     background-size: cover;
     background-position: center;
+    position: relative; /* For positioning language switcher */
 }
 
 /* Wrapper for content with semi-transparent overlay */
@@ -37,7 +39,37 @@ body {
     border-radius: 0.5rem; /* Match outer container's radius */
 }
 
+/* Language Switcher Styles */
+.language-switcher {
+    text-align: right;
+    padding: 0.5rem 1rem 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.lang-link {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #374151;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    transition: background-color 0.2s ease;
+}
+.lang-link:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+/* Note: .no-print class will hide this section on print */
+
+
 /* Article specific spacing */
+.flyer article {
+    padding-top: 1rem; /* Avoid overlap with lang switcher */
+}
 .flyer article > * + * {
     margin-top: 1rem;
 }
@@ -49,7 +81,6 @@ body {
 /* Header Styles */
 .flyer header {
     text-align: center;
-    /* Slightly transparent border for overlay */
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-bottom: 1rem;
     margin-bottom: 1rem;
@@ -58,14 +89,12 @@ body {
 .flyer h1 {
     font-size: 1.5rem;
     font-weight: 700;
-    /* Darker red for better contrast on overlay */
     color: #b91c1c;
     margin-bottom: 0.5rem;
 }
 
  .flyer header p {
      font-size: 1.125rem;
-     /* Darker text for better contrast */
      color: #111827;
  }
 
@@ -73,7 +102,6 @@ body {
 .flyer h2 {
     font-size: 1.25rem;
     font-weight: 600;
-     /* Darker red for better contrast */
     color: #dc2626;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
@@ -83,7 +111,6 @@ body {
 .flyer ul {
     list-style: disc;
     padding-left: 1.5rem;
-     /* Darker text for better contrast */
     color: #111827;
 }
  .flyer ul li + li {
@@ -91,7 +118,6 @@ body {
  }
 
 .flyer ul li::marker {
-    /* Darker red for better contrast */
     color: #ef4444;
 }
 
@@ -109,7 +135,6 @@ body {
 }
 
 .flyer .list-none .checkmark {
-    /* Darker green for better contrast */
     color: #15803d;
     margin-right: 0.5rem;
     flex-shrink: 0;
@@ -119,11 +144,9 @@ body {
 .flyer footer {
     text-align: center;
     font-size: 0.75rem;
-    /* Darker gray for better contrast */
     color: #374151;
     padding-top: 1rem;
     margin-top: 1.5rem;
-    /* Slightly transparent border */
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -132,7 +155,6 @@ body {
 }
 
 .flyer footer a {
-    /* Darker blue for better contrast */
     color: #1d4ed8;
     text-decoration: none;
 }
@@ -147,10 +169,14 @@ body {
 
 /* --- Print Styles --- */
 @media print {
+    /* @page rule for landscape removed */
+
     body {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-        color: black !important;
-        background-color: white !important;
+        /* Ensure base text color is black for contrast if needed, but allow overrides */
+        color: black;
+        background-color: white !important; /* Ensure body background is white */
+        /* Encourage printing backgrounds */
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
@@ -161,37 +187,42 @@ body {
          padding: 0 !important;
          border-radius: 0 !important;
          box-shadow: none !important;
-         /* Remove background image for print */
-         background-image: none !important;
-         background-color: white !important;
+         /* Keep background image for print */
+         /* background-image: none !important; REMOVED */
+         background-color: white !important; /* Fallback if image fails */
+         position: static !important; /* Reset position */
     }
 
     .flyer-content-wrapper {
-        /* Remove overlay for print */
-        background-color: transparent !important;
-        padding: 0 !important;
+        /* Keep overlay for print */
+        /* background-color: transparent !important; REMOVED */
+        padding: 0 !important; /* Still remove padding */
         border-radius: 0 !important;
     }
+     .flyer article {
+         padding-top: 0 !important; /* Reset padding */
+     }
 
-    /* Reset all text colors to black for print */
-    .flyer h1, .flyer h2, .flyer ul, .flyer footer, .flyer header p, .flyer footer p, .flyer .list-none .checkmark {
-        color: black !important;
-    }
+
+    /* Allow original text colors to persist for better contrast on overlay/image */
+    /* color: black !important; REMOVED for most elements */
 
      .flyer ul li::marker {
-         color: black !important;
+         /* color: black !important; REMOVED */
      }
 
     .flyer header, .flyer footer {
-        /* Standard gray border for print */
-        border-color: #a1a1aa !important;
+        /* Keep slightly transparent border */
+        /* border-color: #a1a1aa !important; REMOVED */
     }
 
     .flyer a {
+        /* Keep original link color, but ensure underline */
         text-decoration: underline !important;
-        color: black !important;
+        /* color: black !important; REMOVED */
     }
 
+    /* Keep URL display for external links */
     .flyer a[href^="http"]::after {
          content: " (" attr(href) ")";
          font-size: 0.9em;
@@ -201,10 +232,12 @@ body {
           content: "";
      }
 
+    /* Still hide elements marked as no-print */
     .no-print {
          display: none !important;
     }
 
+    /* Still show elements marked as only-print */
     .only-print {
          display: block !important;
     }
