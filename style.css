@@ -6,86 +6,93 @@
 }
 
 body {
-    /* Updated font-family to system stack */
+    /* System font stack */
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    background-color: #f3f4f6; /* Equivalent to bg-gray-100 */
+    background-color: #f3f4f6; /* Light gray background */
     line-height: 1.6;
     color: #1f2937; /* Default text color */
 }
 
 /* Container for the background image */
 .flyer-container-outer {
-    max-width: 48rem; /* Equivalent to max-w-2xl */
+    max-width: 48rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2.5rem; /* my-10 */
-    margin-bottom: 2.5rem; /* my-10 */
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
-    overflow: hidden; /* Needed for rounded corners with background */
-    /* Background Image - NOTE: Update path if needed */
-    background-image: url('82136127-3e21-4e8c-a032-d3c1451bd23a.jpg');
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    /* Background Image Added Here */
+    background-image: url('image.jpg');
     background-size: cover;
     background-position: center;
 }
 
 /* Wrapper for content with semi-transparent overlay */
 .flyer-content-wrapper {
-    background-color: rgba(255, 255, 255, 0.85); /* bg-white/85 */
-    padding: 2rem; /* p-8 (adjust for sm if needed via media query) */
-    border-radius: 0.5rem; /* rounded-lg (inherited by outer on print) */
+    /* Semi-transparent white background for text readability */
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2rem;
+    border-radius: 0.5rem; /* Match outer container's radius */
 }
 
 /* Article specific spacing */
 .flyer article > * + * {
-    margin-top: 1rem; /* space-y-4 (applied between direct children) */
+    margin-top: 1rem;
 }
  .flyer section > * + * {
-     margin-top: 0.75rem; /* space-y-3 */
+     margin-top: 0.75rem;
  }
 
 
 /* Header Styles */
 .flyer header {
     text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* border-b border-black/20 */
-    padding-bottom: 1rem; /* pb-4 */
-    margin-bottom: 1rem; /* Consistent spacing */
+    /* Slightly transparent border for overlay */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .flyer h1 {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    color: #b91c1c; /* text-red-800 */
-    margin-bottom: 0.5rem; /* mb-2 */
+    font-size: 1.5rem;
+    font-weight: 700;
+    /* Darker red for better contrast on overlay */
+    color: #b91c1c;
+    margin-bottom: 0.5rem;
 }
 
  .flyer header p {
-     font-size: 1.125rem; /* text-lg */
-     color: #111827; /* text-gray-900 */
+     font-size: 1.125rem;
+     /* Darker text for better contrast */
+     color: #111827;
  }
 
 /* Section Styles */
 .flyer h2 {
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 600; /* font-semibold */
-    color: #dc2626; /* text-red-700 */
-    margin-top: 1.5rem; /* mt-6 */
-    margin-bottom: 0.5rem; /* mb-2 */
+    font-size: 1.25rem;
+    font-weight: 600;
+     /* Darker red for better contrast */
+    color: #dc2626;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
 /* List Styles */
 .flyer ul {
     list-style: disc;
-    padding-left: 1.5rem; /* Approximate list-inside */
-    color: #111827; /* text-gray-900 */
+    padding-left: 1.5rem;
+     /* Darker text for better contrast */
+    color: #111827;
 }
  .flyer ul li + li {
-     margin-top: 0.25rem; /* space-y-1 */
+     margin-top: 0.25rem;
  }
 
 .flyer ul li::marker {
-    color: #ef4444; /* text-red-600 */
+    /* Darker red for better contrast */
+    color: #ef4444;
 }
 
 .flyer ul.list-none {
@@ -93,36 +100,40 @@ body {
     padding-left: 0;
 }
  .flyer ul.list-none li + li {
-     margin-top: 0.5rem; /* space-y-2 */
+     margin-top: 0.5rem;
  }
 
 .flyer .list-none li {
     display: flex;
-    align-items: flex-start; /* items-start */
+    align-items: flex-start;
 }
 
 .flyer .list-none .checkmark {
-    color: #15803d; /* text-green-700 */
-    margin-right: 0.5rem; /* mr-2 */
-    flex-shrink: 0; /* Prevent checkmark from shrinking */
+    /* Darker green for better contrast */
+    color: #15803d;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
 }
 
 /* Footer Styles */
 .flyer footer {
     text-align: center;
-    font-size: 0.75rem; /* text-xs */
-    color: #4b5563; /* text-gray-700 */
-    padding-top: 1rem; /* pt-4 */
-    margin-top: 1.5rem; /* mt-6 */
-    border-top: 1px solid rgba(0, 0, 0, 0.2); /* border-t border-black/20 */
+    font-size: 0.75rem;
+    /* Darker gray for better contrast */
+    color: #374151;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+    /* Slightly transparent border */
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .flyer footer p + p {
-     margin-top: 0.25rem; /* space between paragraphs */
+     margin-top: 0.25rem;
 }
 
 .flyer footer a {
-    color: #2563eb; /* text-blue-700 */
+    /* Darker blue for better contrast */
+    color: #1d4ed8;
     text-decoration: none;
 }
 .flyer footer a:hover {
@@ -130,14 +141,13 @@ body {
 }
 
 /* Utility classes for print control */
-.no-print { display: revert; } /* Default display */
-.only-print { display: none; } /* Hidden by default */
+.no-print { display: revert; }
+.only-print { display: none; }
 
 
 /* --- Print Styles --- */
 @media print {
     body {
-         /* Use system font stack for print too */
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         color: black !important;
         background-color: white !important;
@@ -151,29 +161,30 @@ body {
          padding: 0 !important;
          border-radius: 0 !important;
          box-shadow: none !important;
+         /* Remove background image for print */
          background-image: none !important;
          background-color: white !important;
     }
 
     .flyer-content-wrapper {
+        /* Remove overlay for print */
         background-color: transparent !important;
         padding: 0 !important;
-        border-radius: 0 !important; /* Ensure no radius inside */
+        border-radius: 0 !important;
     }
 
-    .flyer h1, .flyer h2, .flyer ul, .flyer footer, .flyer header p, .flyer footer p {
+    /* Reset all text colors to black for print */
+    .flyer h1, .flyer h2, .flyer ul, .flyer footer, .flyer header p, .flyer footer p, .flyer .list-none .checkmark {
         color: black !important;
     }
 
      .flyer ul li::marker {
          color: black !important;
      }
-     .flyer .list-none .checkmark {
-         color: black !important;
-     }
 
     .flyer header, .flyer footer {
-        border-color: #a1a1aa !important; /* print:border-gray-400 equivalent */
+        /* Standard gray border for print */
+        border-color: #a1a1aa !important;
     }
 
     .flyer a {
@@ -181,26 +192,23 @@ body {
         color: black !important;
     }
 
-    /* Show full URL for external links on print */
     .flyer a[href^="http"]::after {
          content: " (" attr(href) ")";
          font-size: 0.9em;
          color: #555;
     }
-     /* Hide URL for placeholder links */
      .flyer a[href="[Your Link Here]"]::after {
           content: "";
      }
-
 
     .no-print {
          display: none !important;
     }
 
     .only-print {
-         display: block !important; /* Or inline, adjust as needed */
+         display: block !important;
     }
-     .only-print.mt-1 { /* Specific handling for margin */
+     .only-print.mt-1 {
          margin-top: 0.25rem !important;
      }
 }
