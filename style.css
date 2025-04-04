@@ -25,7 +25,7 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     /* Background Image Added Here */
-    background-image: url('82136127-3e21-4e8c-a032-d3c1451bd23a.jpg');
+    background-image: url('image.png');
     background-size: cover;
     background-position: center;
     position: relative; /* For positioning language switcher */
